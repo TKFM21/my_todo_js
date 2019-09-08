@@ -1,0 +1,28 @@
+@import "~ress/ress.css";
+
+body{
+    background-color: rgb(229, 226, 226);
+}
+
+.btn-add{
+    background-color: #000;
+    color: #ffffff;
+    display: block;
+}
+
+.error{
+    color: red;
+    display: none;
+}
+
+.js-error{
+    display: block;
+}
+
+#search, #todo{
+    background-color: #fff;
+}
+
+span{
+    margin: 10px;
+}
