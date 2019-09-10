@@ -26,3 +26,23 @@ body{
 span{
     margin: 10px;
 }
+
+.todolists{
+    margin: 10px 10px 10px 10px;
+}
+
+.todo-item{
+    margin: 10px 10px 10px 10px;
+    background-color: #fff;
+    & .text{
+        width: 200px;
+    }
+}
+
+.js-todo-end{
+    background-color: rgb(229, 226, 226);
+}
+
+.js-todo-done{
+    background-color: #ec5d5d;
+}

@@ -2,6 +2,7 @@ const btnAdd = document.querySelector('.js-btn-add');
 const errorMsg = document.querySelector('.error');
 const addToDoInput = document.querySelector('.js-todo-input');
 console.log('aaaa');
+const checkClick = document.querySelectorAll('.check');
 
 btnAdd.addEventListener('click', (event) => {
     console.log('bbbb');
@@ -16,25 +17,50 @@ btnAdd.addEventListener('click', (event) => {
         let newElement = document.createElement('div');
         newElement.classList.add('todo-item');
 
-        let newSpan1 = document.createElement('span');
-        newSpan1.classList.add('check');
-        newSpan1.textContent = '□';
-        newElement.appendChild(newSpan1);
+        let spanClassName = ['check', 'text', 'delete'];
+        let spanTextContent = ['□', addToDoInput.value, 'G'];
 
-        let newSpan2 = document.createElement('span');
-        newSpan2.classList.add('text');
-        newSpan2.textContent = addToDoInput.value;
-        newElement.appendChild(newSpan2);
+        for(let i=0; i<3; i++){
+            let newSpan = document.createElement('span');
+            newSpan.classList.add(spanClassName[i]);
+            newSpan.textContent = spanTextContent[i];
+            newElement.appendChild(newSpan);
+        };
 
-        let newSpan3 = document.createElement('span');
-        newSpan3.classList.add('delete');
-        newSpan3.textContent = 'G';
-        newElement.appendChild(newSpan3);
+        let checkClickSpan = newElement.firstChild;
+        console.log(checkClickSpan);
+        checkClickSpan.addEventListener('click', (event) => {
+            if(checkClickSpan.innerHTML === '■'){
+                checkClickSpan.innerHTML = '□';
+                checkClickSpan.parentElement.className = 'todo-item';
+            } else {
+                checkClickSpan.innerHTML = '■';
+                checkClickSpan.parentElement.className = 'todo-item js-todo-done';
+            };
+        });
 
         let trn = todolists.insertBefore(newElement, todolists.firstChild);//先頭へ追加する
+
+        addToDoInput.value = '';
 
         console.log(trn);
     };
 
     console.log('OK');
 });
+
+console.log(checkClick.length);
+console.log(checkClick[1]);
+
+for(let i=0; i<checkClick.length; i++){
+    checkClick[i].addEventListener('click', (event) => {
+        console.log('check Event');
+        if(checkClick[i].innerHTML === '■'){
+            checkClick[i].innerHTML = '□';
+            checkClick[i].parentElement.className = 'todo-item'
+        } else {
+            checkClick[i].innerHTML = '■';
+            checkClick[i].parentElement.className = 'todo-item js-todo-done';
+        };
+    });
+};
