@@ -9,6 +9,8 @@ npm install gulp-changed -D
 npm install node-sass-package-importer -D
 npm install ress -S
 npm install prettier -D
+npm install eslint eslint-config-prettier eslint-plugin-prettier -D
+npm install lint-staged husky -D
 
 mkdir -vp src/css
 mkdir -vp src/img
