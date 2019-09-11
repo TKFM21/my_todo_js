@@ -8,6 +8,7 @@ npm install gulp-imagemin -D
 npm install gulp-changed -D
 npm install node-sass-package-importer -D
 npm install ress -S
+npm install prettier -D
 
 mkdir -vp src/css
 mkdir -vp src/img
