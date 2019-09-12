@@ -5,8 +5,8 @@ console.log('aaaa');
 const checkClick = document.querySelectorAll('.check');
 
 btnAdd.addEventListener('click', event => {
-console.log('bbbb');
-console.log(addToDoInput.value);
+  console.log('bbbb');
+  console.log(addToDoInput.value);
 
   if (addToDoInput.value === '') {
     errorMsg.className = 'error js-error'; //追加ボタンが押されても入力値が空ならエラーを表示するだけ
