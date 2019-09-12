@@ -3,8 +3,9 @@ const errorMsg = document.querySelector('.error');
 const addToDoInput = document.querySelector('.js-todo-input');
 console.log('aaaa');
 const checkClick = document.querySelectorAll('.check');
-
+/* eslint-disable no-unused-vars */
 btnAdd.addEventListener('click', event => {
+  /* eslint-disable no-unused-vars */
   console.log('bbbb');
   console.log(addToDoInput.value);
 
@@ -29,7 +30,9 @@ btnAdd.addEventListener('click', event => {
 
     let checkClickSpan = newElement.firstChild;
     console.log(checkClickSpan);
+    /* eslint-disable no-unused-vars */
     checkClickSpan.addEventListener('click', event => {
+      /* eslint-disable no-unused-vars */
       if (checkClickSpan.innerHTML === '■') {
         checkClickSpan.innerHTML = '□';
         checkClickSpan.parentElement.className = 'todo-item';
@@ -53,7 +56,9 @@ console.log(checkClick.length);
 console.log(checkClick[1]);
 
 for (let i = 0; i < checkClick.length; i++) {
+  /* eslint-disable no-unused-vars */
   checkClick[i].addEventListener('click', event => {
+    /* eslint-disable no-unused-vars */
     console.log('check Event');
     if (checkClick[i].innerHTML === '■') {
       checkClick[i].innerHTML = '□';
@@ -62,9 +67,5 @@ for (let i = 0; i < checkClick.length; i++) {
       checkClick[i].innerHTML = '■';
       checkClick[i].parentElement.className = 'todo-item js-todo-done';
     }
-
-
-
-    
   });
 }
