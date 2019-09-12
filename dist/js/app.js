@@ -56,7 +56,7 @@ for (let i = 0; i < checkClick.length; i++) {
   checkClick[i].addEventListener('click', event => {
     console.log('check Event');
     if (checkClick[i].innerHTML === '■') {
-  checkClick[i].innerHTML = '□';
+checkClick[i].innerHTML = '□';
 checkClick[i].parentElement.className = 'todo-item';
     } else {
       checkClick[i].innerHTML = '■';
