@@ -62,5 +62,9 @@ for (let i = 0; i < checkClick.length; i++) {
       checkClick[i].innerHTML = '■';
       checkClick[i].parentElement.className = 'todo-item js-todo-done';
     }
+
+
+
+    
   });
 }
