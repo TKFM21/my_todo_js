@@ -42,6 +42,13 @@ btnAdd.addEventListener('click', event => {
       }
     });
 
+    let deleteClickSpan = newElement.lastChild;
+    /* eslint-disable no-unused-vars */
+    deleteClickSpan.addEventListener('click', event => {
+      /* eslint-disable no-unused-vars */
+      deleteClickSpan.parentElement.remove();
+    });
+
     let trn = todolists.insertBefore(newElement, todolists.firstChild); //先頭へ追加する
 
     addToDoInput.value = '';
@@ -67,5 +74,15 @@ for (let i = 0; i < checkClick.length; i++) {
       checkClick[i].innerHTML = '■';
       checkClick[i].parentElement.className = 'todo-item js-todo-done';
     }
+  });
+}
+
+const deleteClicks = document.querySelectorAll('.delete');
+for (let i = 0; i < deleteClicks.length; i++) {
+  /* eslint-disable no-unused-vars */
+  console.log(deleteClicks[i]);
+  deleteClicks[i].addEventListener('click', event => {
+    /* eslint-disable no-unused-vars */
+    deleteClicks[i].parentElement.remove();
   });
 }
