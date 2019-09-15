@@ -10,19 +10,23 @@
 <body>
     <main class="main">
         <div>
-            <input type="text" name="todo" id="todo" class="js-todo-input" placeholder="ここに入力して・・・">
-            <p class="error">EError Input Value!</p>
+            <input type="text" name="todo" id="todo" class="todo-input js-todo-input" placeholder="ここに入力して・・・">
+            <p class="error js-error">Error Input Value!</p>
             <button class="btn-add js-btn-add">Add</button>
         </div>
         <div>
             <input type="text" name="search" id="search" placeholder="Search word">
         </div>
-        <div class="todolists">
-            <div class="todo-item">
-                <span class="check">□</span><span class="text">ToDo1</span><span class="delete">G</span>
+        <div class="todo-lists js-todo-lists">
+            <div class="todo-item js-todo-item">
+                <span class="check js-check">□</span>
+                <span class="text js-text">ToDo1</span>
+                <span class="delete js-delete">G</span>
             </div>
-            <div class="todo-item">
-                <span class="check">□</span><span class="text">ToDo2</span><span class="delete">G</span>
+            <div class="todo-item js-todo-item">
+                <span class="check js-check">□</span>
+                <span class="text js-text">ToDo2</span>
+                <span class="delete js-delete">G</span>
             </div>
         </div>
     </main>

@@ -15,7 +15,7 @@ body{
     display: none;
 }
 
-.js-error{
+.js-error-on{
     display: block;
 }
 
@@ -27,7 +27,7 @@ span{
     margin: 10px;
 }
 
-.todolists{
+.todo-lists{
     margin: 10px 10px 10px 10px;
 }
 
@@ -47,6 +47,6 @@ span{
     background-color: #ec5d5d;
 }
 
-.search-out {
+.js-search-out {
     display: none;
 }
