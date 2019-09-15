@@ -1,12 +1,52 @@
 const btnAdd = document.querySelector('.js-btn-add');
 const errorMsg = document.querySelector('.error');
 const addToDoInput = document.querySelector('.js-todo-input');
-console.log('aaaa');
-const checkClick = document.querySelectorAll('.check');
+
+/* eslint-disable no-unused-vars */
+const checkClickFunc = event => {
+  /* eslint-disable no-unused-vars */
+  if (event.target.textContent === '■') {
+    event.target.textContent = '□';
+    event.target.parentNode.className = 'todo-item';
+  } else {
+    event.target.textContent = '■';
+    event.target.parentNode.className = 'todo-item js-todo-done';
+  }
+};
+
+/* eslint-disable no-unused-vars */
+const deleteClickFunc = event => {
+  /* eslint-disable no-unused-vars */
+  let delEle = event.target.parentNode;
+  event.target.parentNode.parentNode.removeChild(delEle);
+};
+
+/* eslint-disable no-unused-vars */
+const taskNameClickFunc = event => {
+  /* eslint-disable no-unused-vars */
+  let taskName = event.target.textContent;
+  let newInput = document.createElement('input');
+  newInput.setAttribute('type', 'text');
+  newInput.setAttribute('name', 'todo');
+  newInput.setAttribute('value', taskName);
+  newInput.addEventListener('keydown', event => {
+    if (event.shiftKey && event.keyCode === 13) {
+      let inputVal = event.srcElement.value;
+      let newSpanText = document.createElement('span');
+      newSpanText.classList.add('text');
+      newSpanText.textContent = inputVal;
+      newSpanText.addEventListener('click', taskNameClickFunc);
+      event.srcElement.parentNode.replaceChild(newSpanText, event.srcElement);
+    }
+  });
+  let parentNodeEle = event.target.parentNode;
+  parentNodeEle.replaceChild(newInput, event.target);
+  parentNodeEle.getElementsByTagName('input')[0].focus();
+};
+
 /* eslint-disable no-unused-vars */
 btnAdd.addEventListener('click', event => {
   /* eslint-disable no-unused-vars */
-  console.log('bbbb');
   console.log(addToDoInput.value);
 
   if (addToDoInput.value === '') {
@@ -20,69 +60,35 @@ btnAdd.addEventListener('click', event => {
 
     let spanClassName = ['check', 'text', 'delete'];
     let spanTextContent = ['□', addToDoInput.value, 'G'];
-
+    let spanEventFunc = [checkClickFunc, taskNameClickFunc, deleteClickFunc];
     for (let i = 0; i < 3; i++) {
       let newSpan = document.createElement('span');
       newSpan.classList.add(spanClassName[i]);
       newSpan.textContent = spanTextContent[i];
+      newSpan.addEventListener('click', spanEventFunc[i]);
       newElement.appendChild(newSpan);
     }
 
-    let checkClickSpan = newElement.firstChild;
-    console.log(checkClickSpan);
-    /* eslint-disable no-unused-vars */
-    checkClickSpan.addEventListener('click', event => {
-      /* eslint-disable no-unused-vars */
-      if (checkClickSpan.innerHTML === '■') {
-        checkClickSpan.innerHTML = '□';
-        checkClickSpan.parentElement.className = 'todo-item';
-      } else {
-        checkClickSpan.innerHTML = '■';
-        checkClickSpan.parentElement.className = 'todo-item js-todo-done';
-      }
-    });
-
-    let deleteClickSpan = newElement.lastChild;
-    /* eslint-disable no-unused-vars */
-    deleteClickSpan.addEventListener('click', event => {
-      /* eslint-disable no-unused-vars */
-      deleteClickSpan.parentElement.remove();
-    });
-
-    let trn = todolists.insertBefore(newElement, todolists.firstChild); //先頭へ追加する
+    todolists.insertBefore(newElement, todolists.firstChild); //先頭へ追加する
 
     addToDoInput.value = '';
-
-    console.log(trn);
   }
-
-  console.log('OK');
 });
 
-console.log(checkClick.length);
-console.log(checkClick[1]);
-
+// タスク完了・未完了の切り替えイベント
+const checkClick = document.querySelectorAll('.check');
 for (let i = 0; i < checkClick.length; i++) {
-  /* eslint-disable no-unused-vars */
-  checkClick[i].addEventListener('click', event => {
-    /* eslint-disable no-unused-vars */
-    console.log('check Event');
-    if (checkClick[i].innerHTML === '■') {
-      checkClick[i].innerHTML = '□';
-      checkClick[i].parentElement.className = 'todo-item';
-    } else {
-      checkClick[i].innerHTML = '■';
-      checkClick[i].parentElement.className = 'todo-item js-todo-done';
-    }
-  });
+  checkClick[i].addEventListener('click', checkClickFunc);
 }
 
+// ゴミ箱がクリックされた場合のDOM削除イベント
 const deleteClicks = document.querySelectorAll('.delete');
 for (let i = 0; i < deleteClicks.length; i++) {
-  /* eslint-disable no-unused-vars */
-  console.log(deleteClicks[i]);
-  deleteClicks[i].addEventListener('click', event => {
-    /* eslint-disable no-unused-vars */
-    deleteClicks[i].parentElement.remove();
-  });
+  deleteClicks[i].addEventListener('click', deleteClickFunc);
+}
+
+// タスク名がクリックされた場合のタスク名変更イベント
+const taskNameClicks = document.querySelectorAll('.text');
+for (let i = 0; i < taskNameClicks.length; i++) {
+  taskNameClicks[i].addEventListener('click', taskNameClickFunc);
 }
