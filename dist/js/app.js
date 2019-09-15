@@ -92,3 +92,20 @@ const taskNameClicks = document.querySelectorAll('.text');
 for (let i = 0; i < taskNameClicks.length; i++) {
   taskNameClicks[i].addEventListener('click', taskNameClickFunc);
 }
+
+// 検索機能
+const searchEle = document.querySelector('#search');
+searchEle.addEventListener('keyup', event => {
+  let inval = event.srcElement.value;
+  let regexp = new RegExp('^' + inval);
+  let todoItems = document.querySelectorAll('.todo-item');
+  for (let i = 0; i < todoItems.length; i++) {
+    let strval = todoItems[i].querySelector('.text').textContent;
+    if (!strval.match(regexp)) {
+      console.log(todoItems[i]);
+      todoItems[i].className = 'todo-item search-out';
+    } else {
+      todoItems[i].className = 'todo-item';
+    }
+  }
+});
