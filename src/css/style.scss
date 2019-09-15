@@ -4,10 +4,37 @@ body{
     background-color: rgb(229, 226, 226);
 }
 
-.btn-add{
-    background-color: #000;
-    color: #ffffff;
-    display: block;
+main {
+    width: 500px;
+    height: 100%;
+    margin: 10px auto;
+    border: black 1px solid;
+    background-color: rgb(80, 79, 79);
+}
+
+.add-input {
+    margin: 30px 10px 10px 10px;
+    & input {
+        width: 100%;
+        margin: 0;
+        padding: 5px;
+    }
+    & .btn-add {
+        margin: 5px 0 0 auto;
+        padding: 5px 5px;
+        background-color: #000;
+        color: #ffffff;
+        display: block;
+    }
+}
+
+.search-input {
+    margin: 10px;
+    & input {
+        margin: 50px auto 10px auto;
+        width: 100%;
+        padding: 5px;
+    }
 }
 
 .error{
@@ -23,27 +50,27 @@ body{
     background-color: #fff;
 }
 
-span{
-    margin: 10px;
-}
-
 .todo-lists{
-    margin: 10px 10px 10px 10px;
+    margin: 10px 10px;
+    width: 100%;
 }
 
-.todo-item{
-    margin: 10px 10px 10px 10px;
+.todo-item {
+    margin: 10px 10px;
     background-color: #fff;
-    & .text{
-        width: 200px;
+    width: 460px;
+    display: inline-flex;
+    justify-content: space-between;
+    & span {
+        margin: 5px;
+    }
+    & .text {
+        width: 400px;
+        padding: 0 5px;
     }
 }
 
-.js-todo-end{
-    background-color: rgb(229, 226, 226);
-}
-
-.js-todo-done{
+.js-todo-done {
     background-color: #ec5d5d;
 }
 
