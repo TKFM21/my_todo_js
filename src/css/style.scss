@@ -2,6 +2,7 @@
 
 body{
     background-color: rgb(229, 226, 226);
+    box-sizing: border-box;
 }
 
 main {
@@ -26,6 +27,12 @@ main {
         color: #ffffff;
         display: block;
     }
+}
+
+.btn:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .5s;
 }
 
 .search-input {
@@ -61,6 +68,7 @@ main {
     width: 460px;
     display: inline-flex;
     justify-content: space-between;
+    transition: .5s transform;
     & span {
         margin: 5px;
     }
@@ -69,6 +77,11 @@ main {
         padding: 0 5px;
     }
 }
+
+.todo-item:hover{
+    transform: scale(1.02);
+    transition: .5s transform;
+  }
 
 .js-todo-done {
     background-color: #ec5d5d;
